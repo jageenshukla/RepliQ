@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1754738941585" clover="3.2.0">
+  <project timestamp="1754738941585" name="All files">
+    <metrics statements="64" coveredstatements="62" conditionals="15" coveredconditionals="14" methods="6" coveredmethods="5" elements="85" coveredelements="81" complexity="0" loc="64" ncloc="64" packages="5" files="7" classes="7"/>
+    <package name="controllers">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="healthController.ts" path="/Users/jageen.shukla/Documents/Projects/Personal/RepliQ/repliq-backend/notification/src/controllers/healthController.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="routes">
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="healthRoutes.ts" path="/Users/jageen.shukla/Documents/Projects/Personal/RepliQ/repliq-backend/notification/src/routes/healthRoutes.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="services">
+      <metrics statements="25" coveredstatements="24" conditionals="7" coveredconditionals="6" methods="2" coveredmethods="2"/>
+      <file name="ChannelHandlerFactory.ts" path="/Users/jageen.shukla/Documents/Projects/Personal/RepliQ/repliq-backend/notification/src/services/ChannelHandlerFactory.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="11" count="2" type="cond" truecount="2" falsecount="0"/>
+      </file>
+      <file name="NotificationService.ts" path="/Users/jageen.shukla/Documents/Projects/Personal/RepliQ/repliq-backend/notification/src/services/NotificationService.ts">
+        <metrics statements="21" coveredstatements="20" conditionals="5" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="10" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="19" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="32" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="services.handlers">
+      <metrics statements="14" coveredstatements="14" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
+      <file name="SlackHandler.ts" path="/Users/jageen.shukla/Documents/Projects/Personal/RepliQ/repliq-backend/notification/src/services/handlers/SlackHandler.ts">
+        <metrics statements="14" coveredstatements="14" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="9" count="4" type="cond" truecount="1" falsecount="0"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="13" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="18" count="3" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="21" count="3" type="stmt"/>
+        <line num="22" count="3" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="utils">
+      <metrics statements="18" coveredstatements="17" conditionals="5" coveredconditionals="5" methods="2" coveredmethods="1"/>
+      <file name="db.ts" path="/Users/jageen.shukla/Documents/Projects/Personal/RepliQ/repliq-backend/notification/src/utils/db.ts">
+        <metrics statements="10" coveredstatements="10" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="3" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+      </file>
+      <file name="logger.ts" path="/Users/jageen.shukla/Documents/Projects/Personal/RepliQ/repliq-backend/notification/src/utils/logger.ts">
+        <metrics statements="8" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="23" count="3" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="27" count="3" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

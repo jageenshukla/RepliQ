@@ -1,0 +1,89 @@
+services:
+  api-gateway:
+    build: ./api-gateway
+    environment:
+      - PORT=3000
+      - REVIEW_INGESTION_URL=http://review-ingestion:3001
+      - REVIEW_PROCESSING_URL=http://review-processing:3002
+      - JIRA_INTEGRATION_URL=http://jira-integration:3003
+      - NOTIFICATION_URL=http://notification:3004
+      - APPROVAL_URL=http://approval:3005
+      - SEMANTIC_SEARCH_URL=http://semantic-search:3006
+      - FEATURE_SPEC_URL=http://feature-spec:3007
+      - MONGODB_URI=mongodb://admin:securepassword123@mongo:27017/repliq?authSource=admin
+    ports:
+      - "3000:3000"
+  review-ingestion:
+    build: ./review-ingestion
+    env_file: ./review-ingestion/.env
+    ports:
+      - "3001:3001"
+    volumes:
+      - /Users/jageen.shukla/Documents/Projects/Personal/secrete/AuthKey_5K5WB73L2R.p8:/secrets/AuthKey_5K5WB73L2R.p8:ro
+    environment:
+      - MONGODB_URI=mongodb://admin:securepassword123@mongo:27017/repliq?authSource=admin
+      - FEATURE_SPEC_URL=http://feature-spec:3007
+      - NOTIFICATION_BASE_URL=http://notification:3004
+      - PROCESS_REVIEW_BASE_URL=http://review-processing:3002
+  review-processing:
+    build: ./review-processing-py
+    env_file: ./review-processing-py/.env
+    ports:
+      - "3002:3002"
+    environment:
+      - MONGODB_URI=mongodb://admin:securepassword123@mongo:27017/repliq?authSource=admin
+      - CHROMA_HOST=chroma
+      - CHROMA_PORT=8000
+      - PROCESS_REVIEW_BASE_URL=http://review-ingestion:3001
+      - FEATURE_SPEC_URL=http://feature-spec:3007
+      - NOTIFICATION_BASE_URL=http://notification:3004
+      - PORT=3002
+      - OPENAI_API_BASE=https://api.ai.public.rakuten-it.com/openai/v1
+      - OPENAI_API_KEY=raik-pat-a9bc86c5cr10aifb82b92368fcad1955feab56e9c9db48fb82b92368fcad1955
+      - ANTHROPIC_API_KEY=raik-pat-a9bc86c5cr10aifb82b92368fcad1955feab56e9c9db48fb82b92368fcad1955
+      - MODEL_NAME=gpt-4.1
+      - OLLAMA_API_BASE=http://ollama:11434
+  notification:
+    build: ./notification
+    env_file: ./notification/.env
+    ports:
+      - "3004:3004"
+
+  # Ollama LLM service for local inference
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    restart: always
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    # Pre-pull the llama3 model on start
+    entrypoint: ["/bin/sh", "-c", "ollama serve & sleep 5 && ollama pull llama3 && tail -f /dev/null"]
+
+  # MongoDB database for reviews, tickets, and configuration
+  mongo:
+    image: mongo:6.0
+    container_name: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: securepassword123
+    command: ["--auth"]
+    volumes:
+      - mongo_data:/data/db
+volumes:
+  mongo_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /Users/jageen.shukla/Documents/Projects/Personal/docker-dir/mongodb
+  ollama_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /Users/jageen.shukla/Documents/Projects/Personal/docker-dir/ollama

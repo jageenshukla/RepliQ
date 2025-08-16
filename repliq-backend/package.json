@@ -1,0 +1,26 @@
+{
+  "name": "repliq-backend",
+  "private": true,
+  "workspaces": [
+    "api-gateway",
+    "review-ingestion",
+    "jira-integration",
+    "notification",
+    "approval"
+  ],
+  "scripts": {
+    "build:all": "npm run build --workspaces",
+    "clean:all": "npm run clean --workspaces",
+    "start:all": "concurrently \"npm run start:api-gateway\" \"npm run start:review-ingestion\" \"npm run start:jira-integration\" \"npm run start:notification\" \"npm run start:approval\" \"./python-start-all.sh\"",
+    "start:api-gateway": "npm --workspace api-gateway run start:dev",
+    "start:review-ingestion": "npm --workspace review-ingestion run start:dev",
+    "start:jira-integration": "npm --workspace jira-integration run start:dev",
+    "start:notification": "npm --workspace notification run start:dev",
+    "start:approval": "npm --workspace approval run start:dev",
+    "build:api-gateway": "npm --workspace api-gateway run build",
+    "clean:api-gateway": "npm --workspace api-gateway run clean"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
